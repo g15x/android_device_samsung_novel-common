@@ -23,6 +23,11 @@ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 PRODUCT_HOST_PACKAGES += \
     dtbhtoolExynos
 
+
+# Permissions
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
+
 # Init files
 PRODUCT_PACKAGES += \
     $(COMMON_PATH)/rootdir/init.universal3475.rc:root/init.universal3475.rc \
