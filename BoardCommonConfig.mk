@@ -40,11 +40,14 @@ TARGET_PROVIDES_INIT_TARGET_RC := true
 
 # Kernel
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x01000000 --tags_offset 0x00000100
+BOARD_CUSTOM_BOOTIMG_MK := $(LOCAL_PATH)/mkbootimg.mk
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
+TARGET_KERNEL_CONFIG := exynos3475-novellte_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/exynos3475
 
 # Filesystem
 BOARD_BOOTIMAGE_PARTITION_SIZE := 13631488
@@ -62,6 +65,9 @@ BOARD_HARDWARE_CLASS := hardware/samsung/cmhw
 # Graphics
 BOARD_EGL_NEEDS_HANDLE_VALUE := true
 USE_OPENGL_RENDERER := true
+
+# Audio
+BOARD_USES_LIBMEDIA_WITH_AUDIOPARAMETER := true
 
 # Camera
 USE_CAMERA_STUB := true
@@ -86,7 +92,15 @@ BOARD_HAVE_SAMSUNG_BLUETOOTH := true
 BOARD_CUSTOM_BT_CONFIG := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 
 # SELinux
-BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/sepolicy
+BOARD_SEPOLICY_DIRS := $(LOCAL_PATH)/selinux
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/fstab.universal3475
+RECOVERY_FSTAB_VERSION := 2
+
+# Samsung HALs
+TARGET_AUDIOHAL_VARIANT := samsung
+TARGET_POWERHAL_VARIANT := samsung
 
 # inherit from the proprietary version
 -include vendor/samsung/novel-common/BoardConfigVendor.mk

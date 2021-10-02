@@ -16,6 +16,10 @@
 
 COMMON_PATH := device/samsung/novel-common
 
+# Screen
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
@@ -62,10 +66,6 @@ PRODUCT_COPY_FILES += \
 # Samsung
 PRODUCT_PACKAGES += \
     SamsungServiceMode
-
-# Screen
-TARGET_SCREEN_HEIGHT := 800
-TARGET_SCREEN_WIDTH := 480
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
