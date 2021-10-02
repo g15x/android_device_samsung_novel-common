@@ -1,0 +1,13 @@
+#
+# system.prop for novel
+#
+
+rild.libpath=/system/lib/libsec-ril.so
+rild.libargs=-d /dev/ttyS0
+
+# set lcd density
+#ro.sf.lcd_density=240
+
+ro.arch=exynos3475
+ro.kernel.qemu=0
+ro.kernel.qemu.gles=1
