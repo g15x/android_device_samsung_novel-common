@@ -1,0 +1,24 @@
+# Android fstab file.
+#<src>                  <mnt_point>         <type>    <mnt_flags and options>                               <fs_mgr_flags>
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+
+/dev/block/platform/13540000.dwmmc0/by-name/BOOT	/boot		emmc	defaults                                                                                       defaults
+/dev/block/platform/13540000.dwmmc0/by-name/SYSTEM	/system		ext4	ro,errors=panic,noload                                                                         wait,verify
+/dev/block/platform/13540000.dwmmc0/by-name/CACHE	/cache		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic    wait,check
+/dev/block/platform/13540000.dwmmc0/by-name/USERDATA	/data		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic    wait,check,encryptable=footer
+/dev/block/platform/13540000.dwmmc0/by-name/EFS		/efs		ext4	noatime,nosuid,nodev,noauto_da_alloc,discard,journal_async_commit,data=ordered,errors=panic    wait,check
+/dev/block/platform/13540000.dwmmc0/by-name/HIDDEN	/preload		ext4	defaults                                                                                   defaults
+/dev/block/platform/13540000.dwmmc0/by-name/RECOVERY	/recovery		emmc	defaults                                                                               defaults
+
+
+# vold-managed
+/devices/13560000.dwmmc2/mmc_host/mmc*     auto    vfat    defaults    voldmanaged=extSdCard:auto,noemulatedsd
+/devices/13510000.usb/usb1*sda             auto    vfat    defaults    voldmanaged=UsbDriveA:auto
+/devices/13510000.usb/usb1*sdb             auto    vfat    defaults    voldmanaged=UsbDriveB:auto
+/devices/13510000.usb/usb1*sdc             auto    vfat    defaults    voldmanaged=UsbDriveC:auto
+/devices/13510000.usb/usb1*sdd             auto    vfat    defaults    voldmanaged=UsbDriveD:auto
+/devices/13510000.usb/usb1*sde             auto    vfat    defaults    voldmanaged=UsbDriveE:auto
+/devices/13510000.usb/usb1*sdf             auto    vfat    defaults    voldmanaged=UsbDriveF:auto
+
