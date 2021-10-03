@@ -78,4 +78,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.opengles.version=196608
 
 # Include non-opensource parts
-$(call inherit-product, vendor/samsung/novel-common/common-vendor.mk)
+$(call inherit-product, vendor/samsung/novel-common/novel-vendor.mk)

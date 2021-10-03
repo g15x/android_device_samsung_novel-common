@@ -58,6 +58,7 @@ lib/libcsc.so
 lib/libdisplay.so
 lib/libdisplaymodule.so
 lib/libexynoscamera.so
+lib/libexynosscaler.so
 lib/libexynosgscaler.so
 lib/libexynosutils.so
 lib/libexynosv4l2.so
