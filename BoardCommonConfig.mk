@@ -50,7 +50,7 @@ BOARD_KERNEL_BASE := 0x10000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_SEPARATED_DT := true
 TARGET_CUSTOM_DTBTOOL := dtbhtoolExynos
-TARGET_KERNEL_CONFIG := exynos3475-novellte_defconfig
+TARGET_KERNEL_CONFIG := lineage-novel3g_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/exynos3475
 
 # Filesystem
@@ -90,6 +90,7 @@ WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/dhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA := "/system/etc/wifi/bcmdhd_sta.bin"
 WIFI_DRIVER_FW_PATH_AP := "/system/etc/wifi/bcmdhd_apsta.bin"
 WIFI_DRIVER_FW_PATH_P2P := "/system/etc/wifi/bcmdhd_p2p.bin"
+WIFI_BAND := 802_11_ABG
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
