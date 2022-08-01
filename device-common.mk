@@ -1,4 +1,4 @@
-#
+# #
 # Copyright (C) 2012 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,10 +14,15 @@
 # limitations under the License.
 #
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+# Inherit some common CM stuff.
+$(call inherit-product, vendor/cm/config/common_full_phone.mk)
+
 LOCAL_PATH := device/samsung/novel-common
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+#DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Screen
 TARGET_SCREEN_HEIGHT := 800
@@ -25,7 +30,7 @@ TARGET_SCREEN_WIDTH := 480
 
 # Flat device tree for boot image
 PRODUCT_HOST_PACKAGES += \
-    dtbhtoolExynosx
+    dtbhtoolExynos
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -74,8 +79,17 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/audio_effects.conf:system/etc/audio_effects.conf \
     $(LOCAL_PATH)/configs/audio/audio_policy.conf:system/etc/audio_policy.conf \
-    $(LOCAL_PATH)/configs/audio/mixer_paths.conf:system/etc/mixer_paths.conf
+    $(LOCAL_PATH)/configs/audio/mixer_paths.xml:system/etc/mixer_paths.xml
 
+# Gralloc
+PRODUCT_PACKAGES += \
+    gralloc.exynos3 \
+    libion \
+    libfimg
+
+# hardware/samsung/AdvancedDisplay (MDNIE)
+PRODUCT_PACKAGES += \
+    AdvancedDisplay
 
 # Keylayout
 PRODUCT_COPY_FILES += \
@@ -119,6 +133,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.arch=exynos3475 \
     debug.hwui.render_dirty_regions=false \
     ro.opengles.version=196608
+
+# call Samsung LSI board support package
+$(call inherit-product, hardware/samsung_slsi/exynos3475/exynos3475.mk)
+$(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)
 
 # Include non-opensource parts
 $(call inherit-product, vendor/samsung/novel-common/novel-vendor.mk)
