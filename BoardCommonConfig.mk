@@ -28,6 +28,7 @@ TARGET_CPU_VARIANT := cortex-a7
 
 BOARD_VENDOR := samsung
 TARGET_BOARD_PLATFORM := exynos5
+TARGET_SLSI_VARIANT := bsp
 TARGET_SOC := exynos3475
 TARGET_BOOTLOADER_BOARD_NAME := universal3475
 
@@ -35,8 +36,6 @@ TARGET_NO_BOOTLOADER := true
 
 # Init
 #TARGET_INIT_VENDOR_LIB := libinit_sec
-#TARGET_RECOVERY_DEVICE_MODULES := libinit_sec
-#TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_sec.cpp
 
 # Kernel config
 BOARD_CUSTOM_BOOTIMG := true
