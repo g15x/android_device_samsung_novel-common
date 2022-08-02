@@ -132,12 +132,6 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.secure=0 \
     ro.adb.secure=0
 
-# System properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.arch=exynos3475 \
-    debug.hwui.render_dirty_regions=false \
-    ro.opengles.version=196608
-
 # call Samsung LSI board support package
 $(call inherit-product, hardware/samsung_slsi/exynos3475/exynos3475.mk)
 $(call inherit-product, hardware/samsung_slsi/exynos5/exynos5.mk)

@@ -17,7 +17,8 @@ dalvik.vm.heapminfree=2m
 dalvik.vm.heapmaxfree=8m
 
 # Graphics
-ro.opengles.version=196609
+debug.hwui.render_dirty_regions=false
+ro.opengles.version=196608
 ro.sf.lcd_density=240
 debug.hwc.force_gpu=1
 lockscreen.rot_override=true
